@@ -38,13 +38,32 @@
                 padding:10%;
             }
             
+            article h1 {
+                text-align: center;
+            }
+            
             article p {
                 text-indent: 1cm;
+            }
+            
+            article img {
+                float:left;
+                margin-right: 20px;
+                max-width: 150px;
+                max-height: 150px;
             }
             
             footer {
                 margin-top:50px;
                 text-align:center;
+            }
+            
+            .lv {
+                display: none;
+            }
+            
+            .en {
+                display: none;
             }
             
             @media only screen and (max-width:620px) {
@@ -54,6 +73,30 @@
                 }
             }
         </style>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var lang = navigator.language || navigator.userLanguage;   
+                
+                if(lang == "lv") {
+                    $('.lv').css({"display":"block"});
+                    $('.en').css({"display":"none"});
+                } else {
+                    $('.lv').css({"display":"none"});
+                    $('.en').css({"display":"block"});
+                }
+                
+                $('#LV').click(function(){
+                    $('.lv').css({"display":"block"});
+                    $('.en').css({"display":"none"});
+                });
+                
+                $('#EN').click(function(){
+                    $('.lv').css({"display":"none"});
+                    $('.en').css({"display":"block"});
+                });
+            });
+        </script>
     </head>
 <body>
     <div style="overflow:auto">
@@ -64,26 +107,60 @@
             <h1>Armands Arseniuss Skolmeisters</h1>
             <h2>arseniuss</h2>
             
-            <div>Programmatūras arhitekts</div>
-            <div>Filozofs</div>
-            <div>Anarhists</div>
+            <div class="lv">Programmatūras arhitekts</div>
+            <div class="en">Software architect</div>
             
-            <p><a href="https://twitter.com/AArseniussS">twitter: @AArseniussS</a></p>
-            <p><a href="mailto:arseniuss@arseniuss.id.lv">e-mail: arseniuss@arseniuss.id.lv</a><p>
-            <p><a href="https://github.com/arseniuss">github: @arseniuss</a></p>
+            <div class="lv">Filozofs</div>
+            <div class="en">Philosopher</div>
+            
+            <div class="lv">Anarhists</div>
+            <div class="en">Anarchist</div>
+            
+            <p><a href="https://twitter.com/AArseniussS" target="_blank" rel="noopener noreferrer">twitter: @AArseniussS</a></p>
+            <p><a href="mailto:arseniuss@arseniuss.id.lv" target="_blank" rel="noopener noreferrer">e-mail: arseniuss@arseniuss.id.lv</a><p>
+            <p><a href="https://github.com/arseniuss" target="_blank" rel="noopener noreferrer">github: @arseniuss</a></p>
         
-        
+            <p><a id="LV" class="en" href="#">LV</a> <a id="EN" class="lv" href="#">EN</a><p>
         </div>
         <div class="main">
-            <!--article>
-                <h2>Nosaukums</h2>
-                <p>Paragrāfs</p>
-            </article -->
+            <article class="lv">
+                <h1>Arsa emuārs</h1>
+                <p>Šis emuārs ir tapis, lai komentētu, kritizētu un izaicinātu sabiedrībā redzamas personas un notikumus. Veicot domu gājiena pārskatīšanu, es cenšos parādīt maldus un problēmas noteiktās idejās, kā arī uzdot jautājumus, kuri raisās lasot autoru darbus.</p>
+                <p>Rakstu mērķis ir izaicināt lasītājus un autorus pārskatīt viņu idejas par sabiedrību, kā arī palīzēt meklēt atbildes uz vēl neatbildētiem jautājumiem. Pēc anarhisma tradīcījām šis emuārs balstās uz visu varas veidu kritizēšanu un pratināšanu.</p>
+                <p>Emuārs ir atrodams šeit: <a href="http://raksti.arseniuss.id.lv" target="_blank" rel="noopener noreferrer">raksti.arseniuss.id.lv</a>.</p>
+            </article>
+            <article class="lv">
+                <h1>Emuārs "Pirmkods"</h1>
+                <p>Šis emuārs satur manus komentārus un plānus par dažādiem hobiju programmēšanas projektiem kā GNU/Linux sistēmas ikdienas lietošana, Microsoft Windows kritizēšana, <i>flos</i> eksperimentālās operētājsistēmas un programmēšanas valodas izstrāde, spēļu dziņu uzbūve un spēļu idejas, neironu tīkli, internets un daudzas citas lietas.</p>
+                <p>Emuārs ir atrodams šeit: <a href="http://pirmkods.arseniuss.id.lv" target="_blank" rel="noopener noreferrer">pirmkods.arseniuss.id.lv</a>.</p>
+            </article>
+            <article class="en">
+                <h1>Development blog</h1>
+                <p>This blog contains my comments un plans on various topics such as GNU/Linux everyday usage, critic of Microsoft Windows, <i>flos</i> experimental operating system and programming language development, game engine development and game logic ideas, neural network usage, internet and much more.</p>
+                <p>Blog can be found here <a href="http://dev.arseniuss.id.lv" target="_blank" rel="noopener noreferrer">dev.arseniuss.id.lv</a>.</p>
+            </article>
+            <article class="lv">
+                <h1>Eksperimentālā operētājsistēma <i>flos</i></h1>
+                <img src="https://raw.githubusercontent.com/arseniuss/flos/master/docs/logo.png"/>
+                <p>Eksperimentālā operētājsistēma <i>flos</i> ir Plan9, Unix un Xok/Aegis iedvesmota sistēma. Pašlaik šis projekts ir smilšu kaste <i>cell</i> programmēšanas valodai un sistēmu arhitektūras eksperimentiem.</p>
+                <p>Sistēmas nosaukums ir veidojies no pirms gadiem ģenerētas fraktāļa bildes, kas atgādina ziedu. Kā arī visi sistēmas komponenti ir līdzīgi dabas iedvesmoti.</p>
+                <p>Šobrīd projektam nav noteikta plāna. Tas ir atrodams <a href="http://flos.arseniuss.id.lv" target="_blank" rel="noopener noreferrer">flos.arseniuss.id.lv</a> lapā.</p>
+            </article>
+            <article class="en">
+                <h1>The <i>flos</i> experimental operating system</h1>
+                <img src="https://raw.githubusercontent.com/arseniuss/flos/master/docs/logo.png"/>
+                <p>The <i>flos</i> experimental operating system is Plan9, Unix and Xok/Aegis inspired operating system. Currently this project is as sandbox for <i>cell</i> programming language and experiments in system architecture.</p>
+                <p>System's name comes from flower-like fractal I randomly make decades ago. And all it's components are nature inspired.</p>
+                <p>Currently there is no work plan. Project can be found at <a href="http://flos.arseniuss.id.lv" target="_blank" rel="noopener noreferrer">flos.arseniuss.id.lv</a> page</p>
+            </article>
         </div>
     </div>
     <footer>
-        <p>Visas tiesības ir aizsargātas. &copy; Armands Arseniuss Skolmeisters<p>
-        <p>Šī lapa neizmanto sīkdatnes (angl. <i>cookies</i>).</p>
+        <p class="lv">Visas tiesības ir aizsargātas. &copy; Armands Arseniuss Skolmeisters<p>
+        <p class="en">All rights are reserved. &copy; Armands Arseniuss Skolmeisters<p>
+        
+        <p class="lv">Šī lapa neizmanto sīkdatnes (angl. <i>cookies</i>).</p>
+        <p class="en">This page doesn't use cookies.</p>
     </footer>
 </body>
 </html>
